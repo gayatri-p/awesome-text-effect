@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Awesome Text Effect</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Amatic+SC:700');
+
+        body {
+            background: #FFEE48;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: "Amatic SC";
+            overflow:hidden;
+            flex-direction: column;
+            line-height: .9; 
+        }
+
+        div {
+            text-align: center;
+            font-size: 7.6rem;
+            color: #FF6663;
+            text-shadow: 4px 4px 0 #00272B;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="logo" data-text="Hey there!!!"></div>
+    <div id="message" data-text="Nice to meet ya">asd</div>
+    <div id="tagline" data-text="Howdy?">asd</div>
+    <script>
+        const textEffect = id => {
+            let logoTitleContainer = document.getElementById(id)
+            let text = logoTitleContainer.dataset.text
+            let logoRandom = ''
+            let possible = '-+*/|}{[]~\\":;?/.><=+-_)(*&^%$#@!)}'
+
+            const generateRandomTitle = (i, logoRandom) => {
+                setTimeout(_ => {
+                    logoTitleContainer.innerText = logoRandom
+                }, i * 70)
+            }
+
+            for (let i = 0; i < text.length + 1; i++) {
+                logoRandom = text.substr(0, i);
+                for (let j = i; j < text.length; j++) {
+                    logoRandom += possible.charAt(
+                        Math.floor(Math.random() * possible.length)
+                    )
+                }
+                generateRandomTitle(i, logoRandom);
+                logoRandom = ''
+            }
+        }
+
+        textEffect('tagline')
+        textEffect('message')
+        textEffect('logo')
+    </script>
+</body>
+
+</html>

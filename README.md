@@ -1,5 +1,5 @@
 # Text load from symbols
-An awesome text effect where text is loaded from random characters.🤬
+A super lightweight & awesome text effect where text is loaded from random characters.🤬
 
 ![](https://img.shields.io/badge/dependencies-none-blue.svg) ![](https://img.shields.io/badge/size-665%20bytes-blue.svg) ![](https://img.shields.io/badge/size%20(minified)-297%20bytes-blue.svg)
 

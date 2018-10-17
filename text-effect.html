@@ -31,37 +31,37 @@
 </head>
 
 <body>
-    <div id="logo" data-text="Hey there!!!"></div>
-    <div id="message" data-text="Nice to meet ya">asd</div>
-    <div id="tagline" data-text="Howdy?">asd</div>
+    <div id="main"></div>
+    <div id="message"></div>
+    <div id="tagline"></div>
     <script>
-        const textEffect = id => {
-            let logoTitleContainer = document.getElementById(id)
-            let text = logoTitleContainer.dataset.text
-            let logoRandom = ''
+
+        const awesomeEffect = (id, text) => {
+            let container = document.getElementById(id)
+            let randomChars = ''
             let possible = '-+*/|}{[]~\\":;?/.><=+-_)(*&^%$#@!)}'
 
-            const generateRandomTitle = (i, logoRandom) => {
+            const generateRandomTitle = (i, randomChars) => {
                 setTimeout(_ => {
-                    logoTitleContainer.innerText = logoRandom
+                    container.innerText = randomChars
                 }, i * 70)
             }
 
             for (let i = 0; i < text.length + 1; i++) {
-                logoRandom = text.substr(0, i);
+                randomChars = text.substr(0, i);
                 for (let j = i; j < text.length; j++) {
-                    logoRandom += possible.charAt(
+                    randomChars += possible.charAt(
                         Math.floor(Math.random() * possible.length)
                     )
                 }
-                generateRandomTitle(i, logoRandom);
-                logoRandom = ''
+                generateRandomTitle(i, randomChars);
+                randomChars = ''
             }
         }
 
-        textEffect('tagline')
-        textEffect('message')
-        textEffect('logo')
+        awesomeEffect('main', 'Hey there!!!')
+        awesomeEffect('tagline', 'Nice to meet ya')
+        awesomeEffect('message', 'Howdy?')
     </script>
 </body>
 

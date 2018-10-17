@@ -1,5 +1,5 @@
 # Text load from symbols
-An awesome text effect where text is loaded from symbols.🤬
+An awesome text effect where text is loaded from random characters.🤬
 
 ## Demo
 [demo](https://gayatri-p.github.io/awesome-text-effect/) (reload to watch in glory)
@@ -23,4 +23,9 @@ An awesome text effect where text is loaded from symbols.🤬
 ``` js
 awesomeEffect(id, text)
 awesomeEffect(another_id, another_text)
+```
+## Change characters
+Change line 4 of js - 
+```js
+let possible = 'whatever characters you want'
 ```

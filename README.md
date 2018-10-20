@@ -1,7 +1,5 @@
-# Awesome text effect
+# Awesome text effect ![381 bytes](https://img.shields.io/badge/size-381%20bytes-blue.svg)
 A super lightweight & awesome text effect where text is loaded from random characters.🤬
-
-![](https://img.shields.io/badge/dependencies-none-blue.svg) ![](https://img.shields.io/badge/size-665%20bytes-blue.svg) ![](https://img.shields.io/badge/size%20(minified)-297%20bytes-blue.svg)
 
 ## Demo
 [demo](https://gayatri-p.github.io/awesome-text-effect/) (reload to watch in glory)
@@ -22,12 +20,16 @@ A super lightweight & awesome text effect where text is loaded from random chara
 <div id="another_id"></div>
 ```
 ##### Javascript
-``` js
-awesomeEffect(id, text)
-awesomeEffect(another_id, another_text)
+``` html
+<script>
+ awesomeEffect({
+  id: 'id of the element',
+  text: 'text',
+  possible: 'possible random values',
+  delay: 'in ms (default 70ms)'
+ })
+</script>
 ```
-## Change characters
-Change line 4 of js - 
-```js
-let possible = 'whatever characters you want'
-```
+
+## Todo
+- [ ] Fixed width to the container

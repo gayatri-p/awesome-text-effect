@@ -9,43 +9,66 @@
     <style>
         @import url('https://fonts.googleapis.com/css?family=Amatic+SC:700');
 
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
         body {
-            background: #FFEE48;
+            background: url(https://images.weserv.nl/?url=i.imgur.com/6QJjYMe.jpg) no-repeat, #000;
+            background-size:cover;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
             font-family: "Amatic SC";
-            overflow:hidden;
+            overflow-x: hidden;
             flex-direction: column;
-            line-height: .9; 
+            line-height: 1.2;
         }
 
         div {
             text-align: center;
-            font-size: 7.6rem;
-            color: #FF6663;
-            text-shadow: 4px 4px 0 #00272B;
+            font-size: 7.4rem;
+            color: #fee;
+            text-shadow: 0 -40px 100px, 0 0 2px, 0 0 1em #ff4444, 0 0 0.5em #ff4444, 0 0 0.1em #ff4444, 0 10px 3px #000;
+        }
+
+        #message {
+            text-shadow: 0 -40px 100px, 0 0 2px, 0 0 1em #13d30c, 0 0 0.5em #13d30c, 0 0 0.1em #13d30c, 0 10px 3px #000;
+        }
+
+        #tagline {
+            text-shadow: 0 -40px 100px, 0 0 2px, 0 0 1em #6327ee, 0 0 0.5em #6327ee, 0 0 0.1em #6327ee, 0 10px 3px #000;
+        }
+
+        @media (max-width: 800px) {
+            div {
+                font-size: 10vw
+            }
         }
     </style>
 </head>
 
 <body>
-    <a href="https://github.com/you"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_darkblue_121621.png" alt="Fork me on GitHub"></a>
-    <div id="main"></div>
-    <div id="message"></div>
-    <div id="tagline"></div>
+    <a href="https://github.com/gayatri-p/awesome-text-effect" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_white_ffffff.png" alt="Fork me on GitHub"></a>
+    
+    <div id="main" title=" possible: '$$$$$$'"></div>
+    <div id="message" title="delay: 200, possible: '123456789'"></div>
+    <div id="tagline" ></div>
     <script>
 
-        const awesomeEffect = (id, text) => {
-            let container = document.getElementById(id)
+        const awesomeEffect = (dict) => {
+            let container = document.getElementById(dict.id)
             let randomChars = ''
-            let possible = '-+*/|}{[]~\\":;?/.><=+-_)(*&^%$#@!)}'
+            let text = dict.text
+            let possible = (dict.possible) ? dict.possible : 'ABCDEFASIRUWJFCKSJHYWRKJEsdfskdjfk-+*/|}{[]~\\":;?/.><=+-_)(*&^%$#@!)}'
+            let delay = dict.delay ? dict.delay : 70
 
             const generateRandomTitle = (i, randomChars) => {
                 setTimeout(_ => {
                     container.innerText = randomChars
-                }, i * 70)
+                }, i * delay)
             }
 
             for (let i = 0; i < text.length + 1; i++) {
@@ -60,9 +83,24 @@
             }
         }
 
-        awesomeEffect('main', 'Hey there!!!')
-        awesomeEffect('tagline', 'Nice to meet ya')
-        awesomeEffect('message', 'Howdy?')
+        setTimeout(_ => {
+            awesomeEffect({
+                id: 'main',
+                text: 'I have possible as $ sign',
+                possible: '$$$$$$'
+            })
+            awesomeEffect({
+                id: 'message',
+                text: 'I have delay & possible on me',
+                possible: '123456789',
+                delay: 200
+            })
+            awesomeEffect({
+                id: 'tagline',
+                text: 'I\'m default'
+            })
+        }, 50)
+
     </script>
 </body>
 

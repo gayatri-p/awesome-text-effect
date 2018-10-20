@@ -1,12 +1,14 @@
-const awesomeEffect = (id, text) => {
-    let container = document.getElementById(id)
+const awesomeEffect = (dict) => {
+    let container = document.getElementById(dict.id)
     let randomChars = ''
-    let possible = '-+*/|}{[]~\\":;?/.><=+-_)(*&^%$#@!)}'
+    let text = dict.text
+    let possible = (dict.possible) ? dict.possible : 'ABCDEFASIRUWJFCKSJHYWRKJEsdfskdjfk-+*/|}{[]~\\":;?/.><=+-_)(*&^%$#@!)}'
+    let delay = dict.delay ? dict.delay : 70
 
     const generateRandomTitle = (i, randomChars) => {
         setTimeout(_ => {
             container.innerText = randomChars
-        }, i * 70)
+        }, i * delay)
     }
 
     for (let i = 0; i < text.length + 1; i++) {
